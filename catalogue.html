@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reta Peptide — Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy: #1C2B3A; --gold: #C8A96E; --ivory: #F0EBE1; --bg: #FAFAF8; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:var(--bg); font-family:'DM Sans',sans-serif; }
+        nav { 
+            position:fixed; top:0; width:100%; height:68px; background:rgba(255,255,255,0.95);
+            display:flex; align-items:center; justify-content:space-between; padding:0 5%;
+            border-bottom:1px solid rgba(0,0,0,0.1); z-index:100; backdrop-filter:blur(10px);
+        }
+        .logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--navy); }
+        .nav-links a { margin-left:25px; text-decoration:none; color:var(--navy); font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; }
+        .hero { padding:160px 5% 100px; text-align:center; background:var(--ivory); }
+        .hero h1 { font-family:'Cormorant Garamond',serif; font-size:3.5rem; color:var(--navy); margin-bottom:20px; }
+        .btn { background:var(--gold); color:var(--navy); padding:15px 35px; text-decoration:none; font-weight:700; display:inline-block; margin-top:20px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">RETA PEPTIDE</div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="catalogue.html" style="color:var(--gold); font-weight:bold;">Catalogue</a>
+            <a href="#offre" style="background:var(--navy); color:white; padding:8px 15px; border-radius:3px;">Commander</a>
+        </div>
+    </nav>
+    <div class="hero">
+        <h1>L'Excellence Scientifique</h1>
+        <p>Découvrez nos formules de recherche avancées.</p>
+        <a href="catalogue.html" class="btn">VOIR LE CATALOGUE</a>
+    </div>
+</body>
+</html>
