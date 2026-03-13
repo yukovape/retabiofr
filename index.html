@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reta Peptide — Accueil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --navy: #1C2B3A; --gold: #C8A96E; --ivory: #F0EBE1; --bg: #FAFAF8; }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { background:var(--bg); font-family:'DM Sans',sans-serif; }
-        nav { 
-            position:fixed; top:0; width:100%; height:68px; background:rgba(255,255,255,0.95);
-            display:flex; align-items:center; justify-content:space-between; padding:0 5%;
-            border-bottom:1px solid rgba(0,0,0,0.1); z-index:100; backdrop-filter:blur(10px);
-        }
-        .logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--navy); }
-        .nav-links a { margin-left:25px; text-decoration:none; color:var(--navy); font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; }
-        .hero { padding:160px 5% 100px; text-align:center; background:var(--ivory); }
-        .hero h1 { font-family:'Cormorant Garamond',serif; font-size:3.5rem; color:var(--navy); margin-bottom:20px; }
-        .btn { background:var(--gold); color:var(--navy); padding:15px 35px; text-decoration:none; font-weight:700; display:inline-block; margin-top:20px; }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reta Peptide — Formule Triple Agoniste GLP-1 · GIP · Glucagon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --navy: #1C2B3A; --ivory: #F0EBE1; --gold: #C8A96E; --sage: #4A7C6F; --text: #2D2D2D; --muted: #7A7A7A; --bg: #FAFAF8; --white: #FFFFFF; --border: rgba(28,43,58,0.1); }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.75; overflow-x:hidden; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; font-weight:400; }
+    a { text-decoration:none; color:inherit; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; height:68px; display:flex; align-items:center; justify-content:space-between; padding:0 5%; background:rgba(250,250,248,.95); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--navy); }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:32px; align-items:center; }
+    .nav-links a { font-size:.78rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); transition:color .2s; font-weight:500; }
+    .nav-links a:hover { color:var(--navy); }
+    .nav-cta { background:var(--navy) !important; color:var(--ivory) !important; padding:10px 22px; border-radius:3px; font-weight:600 !important; }
+    .nav-ham { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; }
+    .nav-ham span { width:22px; height:1.5px; background:var(--navy); display:block; }
+    .nav-mob { display:none; position:fixed; top:68px; left:0; right:0; z-index:190; background:rgba(250,250,248,.98); border-bottom:1px solid var(--border); flex-direction:column; transform:translateY(-100%); opacity:0; transition:all .3s; }
+    .nav-mob.open { display:flex; transform:translateY(0); opacity:1; }
+    .nav-mob a { padding:15px 20px; border-bottom:1px solid var(--border); font-size:.88rem; text-transform:uppercase; color:var(--navy); }
+    .hero { padding:160px 5% 100px; text-align:center; background:var(--ivory); }
+    .hero h1 { font-size:clamp(2.5rem, 5vw, 4.5rem); margin-bottom:24px; color:var(--navy); }
+    .hero h1 em { font-style:italic; color:var(--gold); }
+    .btn-gold { background:var(--gold); color:var(--navy); padding:18px 40px; display:inline-block; font-weight:700; text-transform:uppercase; margin-top:30px; }
+    @media(max-width:960px) { .nav-links { display:none; } .nav-ham { display:flex; } }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">RETA PEPTIDE</div>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="catalogue.html" style="color:var(--gold); font-weight:bold;">Catalogue</a>
-            <a href="#offre" style="background:var(--navy); color:white; padding:8px 15px; border-radius:3px;">Commander</a>
-        </div>
-    </nav>
-    <div class="hero">
-        <h1>L'Excellence Scientifique</h1>
-        <p>Découvrez nos formules de recherche avancées.</p>
-        <a href="catalogue.html" class="btn">VOIR LE CATALOGUE</a>
+  <nav>
+    <a href="index.html" class="nav-logo">RETA <span>PEPTIDE</span></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="catalogue.html" style="color:var(--gold); font-weight:bold;">Catalogue</a>
+      <a href="#science">La Science</a>
+      <a href="#faq">FAQ</a>
+      <a href="#offre" class="nav-cta">Commander</a>
     </div>
+    <button class="nav-ham" onclick="document.getElementById('navmob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mob" id="navmob">
+    <a href="index.html" onclick="this.parentElement.classList.remove('open')">Accueil</a>
+    <a href="catalogue.html" onclick="this.parentElement.classList.remove('open')">Catalogue</a>
+    <a href="#science" onclick="this.parentElement.classList.remove('open')">La Science</a>
+    <a href="#offre" class="nav-cta" onclick="this.parentElement.classList.remove('open')">Commander →</a>
+  </div>
+
+  <div class="hero">
+    <p style="text-transform:uppercase; letter-spacing:3px; color:var(--gold); margin-bottom:15px;">Triple Agoniste · GLP-1 · GIP · Glucagon</p>
+    <h1>Votre métabolisme<br>attend les <em>bons signaux.</em></h1>
+    <p style="max-width:700px; margin:0 auto; font-size:1.1rem;">Premier complément formulé autour du retatrutide. Science. Transparence. Résultats.</p>
+    <a href="catalogue.html" class="btn-gold">Voir le catalogue</a>
+  </div>
+
+  <section id="science" style="padding:100px 5%; text-align:center;">
+    <h2>La Science Reta</h2>
+    <p>Pureté certifiée > 98%. Fabrication Européenne.</p>
+  </section>
 </body>
 </html>
