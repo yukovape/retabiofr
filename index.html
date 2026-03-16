@@ -1,229 +1,261 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reta Peptide — Moins faim. Plus d'énergie. Résultats réels.</title>
-  <meta name="description" content="Reta Peptide — Le complément qui agit sur votre faim, votre énergie et votre métabolisme. Résultats dès la 2e semaine. Satisfait ou remboursé 30 jours."/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <style>
-    :root{--navy:#1C2B3A;--navy2:#2a3f54;--ivory:#F0EBE1;--gold:#C8A96E;--gold2:#A8893E;--sage:#4A7C6F;--text:#2D2D2D;--muted:#7A7A7A;--bg:#FAFAF8;--white:#FFFFFF;--border:rgba(28,43,58,0.1);--border2:rgba(200,169,110,0.3)}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.75;overflow-x:hidden}
-    h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.1}
-    a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(250,250,248,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--navy)}
-    .nav-logo span{color:var(--gold)}
-    .nav-links{display:flex;gap:24px;align-items:center}
-    .nav-links a{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:500;transition:color .2s}
-    .nav-links a:hover{color:var(--navy)}
-    .nav-cta{background:var(--navy)!important;color:var(--ivory)!important;padding:9px 20px;border-radius:3px;font-weight:600!important}
-    .nav-ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-    .nav-ham span{width:22px;height:1.5px;background:var(--navy);display:block}
-    .nav-mob{display:none;position:fixed;top:64px;left:0;right:0;z-index:190;background:rgba(250,250,248,.98);border-bottom:1px solid var(--border);flex-direction:column;transform:translateY(-100%);opacity:0;transition:all .3s}
-    .nav-mob.open{display:flex;transform:translateY(0);opacity:1}
-    .nav-mob a{padding:15px 20px;border-bottom:1px solid var(--border);font-size:.88rem;text-transform:uppercase;color:var(--navy);letter-spacing:1px}
-    .nav-mob .nav-cta{margin:12px 16px 16px;text-align:center;border-radius:3px;border:none}
-    .hero{min-height:100svh;padding:80px 5% 60px;display:flex;align-items:center;background:linear-gradient(160deg,var(--navy) 0%,#1e3347 55%,#2a4a60 100%);position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(200,169,110,.08) 0%,transparent 65%)}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.3);color:var(--gold);padding:6px 16px;border-radius:100px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:20px;animation:fadeUp .6s ease both}
-    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-    .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;font-weight:300;margin-bottom:16px;animation:fadeUp .7s .1s ease both}
-    .hero h1 em{font-style:italic;color:var(--gold)}
-    .hero-desc{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.8;max-width:460px;margin-bottom:32px;animation:fadeUp .7s .2s ease both}
-    .hero-desc strong{color:rgba(255,255,255,.9);font-weight:600}
-    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .25s ease both}
-    .btn-gold{background:var(--gold);color:var(--navy);padding:15px 32px;border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s;box-shadow:0 4px 20px rgba(200,169,110,.3)}
-    .btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
-    .btn-outline{border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);padding:14px 28px;border-radius:3px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
-    .btn-outline:hover{border-color:rgba(255,255,255,.5);color:#fff}
-    .hero-results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px;animation:fadeUp .7s .35s ease both}
-    .result-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:16px}
-    .result-box.gold{background:rgba(200,169,110,.1);border-color:rgba(200,169,110,.25)}
-    .result-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold);line-height:1}
-    .result-label{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px;letter-spacing:.5px}
-    .hero-right{display:flex;flex-direction:column;gap:14px}
-    .testimonial-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px;animation:fadeUp .7s ease both}
-    .testimonial-card:nth-child(2){animation-delay:.15s;margin-left:20px}
-    .testimonial-card:nth-child(3){animation-delay:.3s;margin-right:20px}
-    .tc-stars{color:var(--gold);font-size:.8rem;margin-bottom:6px}
-    .tc-text{font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.6;font-style:italic;margin-bottom:8px}
-    .tc-author{font-size:.7rem;color:rgba(255,255,255,.35);font-weight:500;letter-spacing:.5px}
-    .tc-result{display:inline-block;margin-top:6px;background:rgba(200,169,110,.15);border:1px solid rgba(200,169,110,.25);color:var(--gold);font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-    .results-strip{background:var(--navy);border-top:1px solid rgba(200,169,110,.15);padding:18px 5%}
-    .rs-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-    .rs-item{display:flex;align-items:center;gap:10px}
-    .rs-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);font-weight:600;line-height:1}
-    .rs-lbl{font-size:.68rem;color:rgba(240,235,225,.4);letter-spacing:.5px;margin-top:2px}
-    .rs-divider{width:1px;height:32px;background:rgba(200,169,110,.15)}
-    .section{padding:80px 5%}
-    .section-inner{max-width:1100px;margin:0 auto}
-    .stag{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);display:block;margin-bottom:12px}
-    .stag::before{content:'— '}
-    .sh2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:16px}
-    .sh2 em{font-style:italic;color:var(--gold)}
-    .ssub{font-size:.95rem;color:var(--muted);max-width:540px;line-height:1.8}
-    .alt{background:var(--navy)}
-    .alt .stag{color:rgba(200,169,110,.6)}
-    .alt .sh2{color:var(--ivory)}
-    .alt .ssub{color:rgba(240,235,225,.5)}
-    .ivory{background:var(--ivory)}
-    .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-    .reveal.visible{opacity:1;transform:none}
-    .before-after{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px}
-    .ba-col{padding:36px 32px}
-    .ba-col.before{background:#f0ece6}
-    .ba-col.after{background:var(--navy)}
-    .ba-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-    .ba-col.before .ba-label{color:var(--muted)}
-    .ba-col.after .ba-label{color:var(--gold)}
-    .ba-label::before{content:'';width:20px;height:1px}
-    .ba-col.before .ba-label::before{background:var(--muted)}
-    .ba-col.after .ba-label::before{background:var(--gold)}
-    .ba-items{display:flex;flex-direction:column;gap:12px}
-    .ba-item{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;line-height:1.6}
-    .ba-col.before .ba-item{color:var(--muted)}
-    .ba-col.after .ba-item{color:rgba(240,235,225,.8)}
-    .ba-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
-    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
-    .benefit-card{background:var(--white);border:1px solid var(--border);padding:32px 26px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
-    .benefit-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
-    .benefit-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(28,43,58,.08)}
-    .benefit-card:hover::after{transform:scaleX(1)}
-    .benefit-week{display:inline-flex;align-items:center;gap:5px;background:rgba(74,124,111,.08);border:1px solid rgba(74,124,111,.2);color:var(--sage);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:16px}
-    .benefit-title{font-size:1rem;color:var(--navy);font-weight:600;margin-bottom:8px;font-family:'DM Sans',sans-serif}
-    .benefit-desc{font-size:.83rem;color:var(--muted);line-height:1.75}
-    .reviews-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;margin-top:48px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--border) transparent;scroll-snap-type:x mandatory}
-    .review-card{flex:0 0 300px;scroll-snap-align:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px}
-    .rc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
-    .rc-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--navy);font-weight:700}
-    .rc-stars{color:var(--gold);font-size:.8rem;letter-spacing:2px}
-    .rc-name{font-weight:600;font-size:.88rem;color:var(--ivory);margin-bottom:2px}
-    .rc-meta{font-size:.7rem;color:rgba(240,235,225,.35)}
-    .rc-text{font-size:.83rem;color:rgba(240,235,225,.7);line-height:1.75;font-style:italic;margin-bottom:12px}
-    .rc-result{display:inline-flex;align-items:center;gap:5px;background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.25);color:var(--gold);font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
-    .science-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-    .sci-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:28px 22px}
-    .sci-icon{font-size:1.6rem;margin-bottom:14px}
-    .sci-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);margin-bottom:8px}
-    .sci-desc{font-size:.82rem;color:rgba(240,235,225,.5);line-height:1.7}
-    .sci-tag{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1.5px;color:rgba(200,169,110,.5);border:1px solid rgba(200,169,110,.2);padding:3px 10px;border-radius:2px}
-    .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
-    .offer-card{background:var(--white);border:2px solid var(--border);border-radius:8px;padding:36px;position:relative;transition:border-color .2s,box-shadow .2s}
-    .offer-card.best{border-color:var(--gold);box-shadow:0 8px 40px rgba(200,169,110,.15)}
-    .offer-card.best::before{content:'Recommandé';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:4px 16px;border-radius:2px}
-    .offer-tag{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
-    .offer-price{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
-    .offer-price-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--navy);line-height:1}
-    .offer-price-unit{font-size:.85rem;color:var(--muted)}
-    .offer-ppd{font-size:.75rem;color:var(--sage);font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:24px}
-    .offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-    .offer-list li{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted)}
-    .offer-list li::before{content:'✓';color:var(--sage);font-weight:700;flex-shrink:0}
-    .offer-btn{width:100%;padding:14px;text-align:center;background:var(--navy);color:var(--ivory);border:none;border-radius:3px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;transition:background .2s,transform .2s}
-    .offer-btn:hover{background:var(--navy2);transform:translateY(-1px)}
-    .offer-card.best .offer-btn{background:var(--gold);color:var(--navy)}
-    .offer-card.best .offer-btn:hover{background:var(--gold2)}
-    .offer-guarantee{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:.75rem;color:var(--muted);justify-content:center}
-    .badges-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:36px}
-    .badge-pill{display:flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);padding:8px 16px;border-radius:100px;font-size:.75rem;color:var(--muted)}
-    .quiz-section{background:var(--ivory)}
-    .quiz-wrap{max-width:620px;margin:48px auto 0;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(28,43,58,.07)}
-    .quiz-header{background:var(--navy);padding:24px 32px;display:flex;align-items:center;gap:14px}
-    .quiz-header-icon{font-size:1.4rem}
-    .quiz-header-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ivory);font-weight:400}
-    .quiz-header-sub{font-size:.72rem;color:rgba(240,235,225,.45);letter-spacing:1px;margin-top:2px}
-    .quiz-progress{height:3px;background:rgba(200,169,110,.15)}
-    .quiz-progress-bar{height:100%;background:var(--gold);transition:width .4s ease}
-    .quiz-body{padding:32px}
-    .quiz-step{display:none;animation:fadeUp .35s ease both}
-    .quiz-step.active{display:block}
-    .quiz-step-num{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:10px;display:block}
-    .quiz-question{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--navy);margin-bottom:24px;line-height:1.3}
-    .quiz-options{display:flex;flex-direction:column;gap:10px}
-    .quiz-option{display:flex;align-items:center;gap:14px;background:var(--bg);border:1.5px solid var(--border);padding:14px 18px;border-radius:8px;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
-    .quiz-option:hover{border-color:var(--gold);background:rgba(200,169,110,.05)}
-    .quiz-option.selected{border-color:var(--gold);background:rgba(200,169,110,.08)}
-    .quiz-option-icon{font-size:1.2rem;flex-shrink:0}
-    .quiz-option-label{font-size:.9rem;color:var(--text);font-weight:500}
-    .quiz-option-sub{font-size:.75rem;color:var(--muted);margin-top:1px}
-    .quiz-option-check{margin-left:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:.7rem}
-    .quiz-option.selected .quiz-option-check{background:var(--gold);border-color:var(--gold);color:var(--navy)}
-    .quiz-next{margin-top:24px;width:100%;background:var(--navy);color:var(--ivory);border:none;padding:14px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .2s,opacity .2s;opacity:.4;pointer-events:none}
-    .quiz-next.enabled{opacity:1;pointer-events:all}
-    .quiz-next.enabled:hover{background:var(--navy2)}
-    .quiz-result{display:none;animation:fadeUp .4s ease both}
-    .quiz-result.active{display:block}
-    .qr-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);margin-bottom:8px}
-    .qr-title em{font-style:italic;color:var(--gold)}
-    .qr-sub{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:24px}
-    .qr-card{background:var(--navy);border-radius:8px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden}
-    .qr-card::before{content:'Recommandé pour vous';position:absolute;top:12px;right:12px;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
-    .qr-cure-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ivory);margin-bottom:4px}
-    .qr-cure-price{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:600;line-height:1;margin-bottom:12px}
-    .qr-cure-features{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
-    .qr-feature{font-size:.8rem;color:rgba(240,235,225,.7);display:flex;align-items:center;gap:8px}
-    .qr-feature::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
-    .qr-btn{display:block;width:100%;background:var(--gold);color:var(--navy);padding:14px;text-align:center;border-radius:6px;font-weight:700;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;transition:background .2s}
-    .qr-btn:hover{background:var(--gold2)}
-    .qr-timeline{background:rgba(74,124,111,.06);border:1px solid rgba(74,124,111,.2);border-radius:8px;padding:18px;margin-bottom:20px}
-    .qr-timeline-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
-    .qr-timeline-steps{display:flex;flex-direction:column;gap:10px}
-    .qr-ts{display:flex;align-items:flex-start;gap:12px;font-size:.82rem}
-    .qr-ts-week{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--sage);font-weight:600;white-space:nowrap;background:rgba(74,124,111,.1);padding:2px 8px;border-radius:2px;margin-top:1px;flex-shrink:0}
-    .qr-ts-text{color:var(--muted);line-height:1.5}
-    .quiz-restart{background:none;border:none;color:var(--muted);font-size:.78rem;cursor:pointer;display:flex;align-items:center;gap:5px;margin-top:4px;padding:0;transition:color .2s;font-family:'DM Sans',sans-serif}
-    .quiz-restart:hover{color:var(--navy)}
-    .faq-wrap{max-width:700px;margin:40px auto 0}
-    .faq-item{border-bottom:1px solid var(--border)}
-    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:500;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:color .2s;-webkit-tap-highlight-color:transparent}
-    .faq-q:hover,.faq-q.open{color:var(--gold2)}
-    .faq-arrow{color:var(--gold);font-size:1.1rem;transition:transform .3s;flex-shrink:0}
-    .faq-q.open .faq-arrow{transform:rotate(45deg)}
-    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.88rem;color:var(--muted);line-height:1.8}
-    .faq-a.open{max-height:300px;padding-bottom:18px}
-    .cta-band{background:var(--navy);padding:80px 5%;text-align:center}
-    .cta-band h2{font-size:clamp(1.8rem,3vw,2.8rem);color:var(--ivory);margin-bottom:12px}
-    .cta-band h2 em{color:var(--gold);font-style:italic}
-    .cta-band p{font-size:.9rem;color:rgba(240,235,225,.5);margin-bottom:28px}
-    footer{background:var(--navy);border-top:1px solid rgba(200,169,110,.1);padding:60px 5% 32px}
-    .footer-inner{max-width:1100px;margin:0 auto}
-    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:40px}
-    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:3px;color:var(--ivory);margin-bottom:12px}
-    .footer-logo span{color:var(--gold)}
-    .footer-desc{font-size:.82rem;color:rgba(240,235,225,.4);line-height:1.8;margin-bottom:12px}
-    .footer-disclaimer{font-size:.7rem;color:rgba(240,235,225,.2);line-height:1.7;font-style:italic}
-    .footer-col-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.5);margin-bottom:14px}
-    .footer-links{display:flex;flex-direction:column;gap:8px}
-    .footer-links a{font-size:.82rem;color:rgba(240,235,225,.35);transition:color .2s}
-    .footer-links a:hover{color:var(--gold)}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.72rem;color:rgba(240,235,225,.2)}
-    .sticky-mob{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:var(--white);border-top:1px solid var(--border);padding:12px 16px 16px;box-shadow:0 -4px 24px rgba(0,0,0,.08)}
-    .sticky-mob a{display:block;background:var(--navy);color:var(--ivory);padding:14px;text-align:center;border-radius:3px;font-weight:600;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
-    .sticky-mob-sub{font-size:.65rem;color:var(--muted);text-align:center;margin-top:5px}
-    @media(max-width:900px){
-      body{padding-bottom:72px}
-      .sticky-mob{display:block}
-      nav{padding:0 16px}
-      .nav-links{display:none}
-      .nav-ham{display:flex}
-      .hero-grid{grid-template-columns:1fr;gap:40px}
-      .hero-right{display:none}
-      .hero-btns{flex-direction:column}
-      .btn-gold,.btn-outline{justify-content:center}
-      .hero-results{grid-template-columns:1fr 1fr}
-      .before-after,.offer-grid,.footer-top{grid-template-columns:1fr}
-      .benefits-grid,.science-grid{grid-template-columns:1fr}
-      .section{padding:56px 16px}
-      .rs-inner{justify-content:center}
-      .quiz-body{padding:20px}
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reta Peptide — Moins faim. Plus d'énergie. Resultats reels.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1C2B3A;--navy2:#2a3f54;--ivory:#F0EBE1;--gold:#C8A96E;--gold2:#A8893E;--sage:#4A7C6F;--text:#2D2D2D;--muted:#7A7A7A;--bg:#FAFAF8;--white:#FFFFFF;--border:rgba(28,43,58,0.1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.75;overflow-x:hidden}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.1}
+a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(250,250,248,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--navy)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy)!important;color:var(--ivory)!important;padding:9px 20px;border-radius:3px;font-weight:600!important}
+.nav-ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-ham span{width:22px;height:1.5px;background:var(--navy);display:block}
+.nav-mob{display:none;position:fixed;top:64px;left:0;right:0;z-index:190;background:rgba(250,250,248,.98);border-bottom:1px solid var(--border);flex-direction:column;transform:translateY(-100%);opacity:0;transition:all .3s}
+.nav-mob.open{display:flex;transform:translateY(0);opacity:1}
+.nav-mob a{padding:15px 20px;border-bottom:1px solid var(--border);font-size:.88rem;text-transform:uppercase;color:var(--navy);letter-spacing:1px}
+.nav-mob .nav-cta{margin:12px 16px 16px;text-align:center;border-radius:3px;border:none}
+
+/* HERO */
+.hero{min-height:100svh;padding:80px 5% 60px;display:flex;align-items:center;background:linear-gradient(160deg,var(--navy) 0%,#1e3347 55%,#2a4a60 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(200,169,110,.08) 0%,transparent 65%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-left{display:flex;flex-direction:column}
+.hero-right{display:flex;flex-direction:column;gap:14px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.3);color:var(--gold);padding:6px 16px;border-radius:100px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:20px;animation:fadeUp .6s ease both;width:fit-content}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;font-weight:300;margin-bottom:16px;animation:fadeUp .7s .1s ease both}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.8;max-width:460px;margin-bottom:32px;animation:fadeUp .7s .2s ease both}
+.hero-desc strong{color:rgba(255,255,255,.9);font-weight:600}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .7s .25s ease both}
+.btn-gold{background:var(--gold);color:var(--navy);padding:15px 32px;border-radius:3px;font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s;box-shadow:0 4px 20px rgba(200,169,110,.3)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);padding:14px 28px;border-radius:3px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.hero-results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px;animation:fadeUp .7s .35s ease both}
+.result-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:16px}
+.result-box.gold{background:rgba(200,169,110,.1);border-color:rgba(200,169,110,.25)}
+.result-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold);line-height:1}
+.result-label{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px;letter-spacing:.5px}
+.tc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px;animation:fadeUp .7s ease both}
+.tc:nth-child(2){animation-delay:.15s;margin-left:20px}
+.tc:nth-child(3){animation-delay:.3s;margin-right:20px}
+.tc-stars{color:var(--gold);font-size:.8rem;margin-bottom:6px}
+.tc-text{font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.6;font-style:italic;margin-bottom:8px}
+.tc-author{font-size:.7rem;color:rgba(255,255,255,.35);font-weight:500;letter-spacing:.5px}
+.tc-tag{display:inline-block;margin-top:6px;background:rgba(200,169,110,.15);border:1px solid rgba(200,169,110,.25);color:var(--gold);font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* STRIP */
+.strip{background:var(--navy);border-top:1px solid rgba(200,169,110,.15);padding:18px 5%}
+.strip-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.strip-item{display:flex;align-items:center;gap:10px}
+.strip-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);font-weight:600;line-height:1}
+.strip-lbl{font-size:.68rem;color:rgba(240,235,225,.4);letter-spacing:.5px;margin-top:2px}
+.strip-div{width:1px;height:32px;background:rgba(200,169,110,.15)}
+
+/* SECTIONS */
+.sec{padding:80px 5%}
+.sec-in{max-width:1100px;margin:0 auto}
+.stag{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);display:block;margin-bottom:12px}
+.stag::before{content:'-- '}
+.sh2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:16px}
+.sh2 em{font-style:italic;color:var(--gold)}
+.ssub{font-size:.95rem;color:var(--muted);max-width:540px;line-height:1.8}
+.bg-navy{background:var(--navy)}
+.bg-navy .stag{color:rgba(200,169,110,.6)}
+.bg-navy .sh2{color:var(--ivory)}
+.bg-navy .ssub{color:rgba(240,235,225,.5)}
+.bg-ivory{background:var(--ivory)}
+.rev{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rev.vis{opacity:1;transform:none}
+
+/* AVANT APRES */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px}
+.ba-col{padding:36px 32px}
+.ba-before{background:#f0ece6}
+.ba-after{background:var(--navy)}
+.ba-lbl{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.ba-before .ba-lbl{color:var(--muted)}
+.ba-after .ba-lbl{color:var(--gold)}
+.ba-lbl::before{content:'';width:20px;height:1px}
+.ba-before .ba-lbl::before{background:var(--muted)}
+.ba-after .ba-lbl::before{background:var(--gold)}
+.ba-items{display:flex;flex-direction:column;gap:12px}
+.ba-item{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;line-height:1.6}
+.ba-before .ba-item{color:var(--muted)}
+.ba-after .ba-item{color:rgba(240,235,225,.8)}
+.ba-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
+
+/* BENEFICES */
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
+.ben-card{background:var(--white);border:1px solid var(--border);padding:32px 26px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.ben-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+.ben-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(28,43,58,.08)}
+.ben-card:hover::after{transform:scaleX(1)}
+.ben-week{display:inline-flex;align-items:center;gap:5px;background:rgba(74,124,111,.08);border:1px solid rgba(74,124,111,.2);color:var(--sage);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:16px}
+.ben-title{font-size:1rem;color:var(--navy);font-weight:600;margin-bottom:8px}
+.ben-desc{font-size:.83rem;color:var(--muted);line-height:1.75}
+
+/* AVIS */
+.avis-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;margin-top:48px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scroll-snap-type:x mandatory}
+.avis-card{flex:0 0 300px;scroll-snap-align:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px}
+.avis-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.avis-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--navy);font-weight:700}
+.avis-stars{color:var(--gold);font-size:.8rem;letter-spacing:2px}
+.avis-name{font-weight:600;font-size:.88rem;color:var(--ivory);margin-bottom:2px}
+.avis-meta{font-size:.7rem;color:rgba(240,235,225,.35)}
+.avis-text{font-size:.83rem;color:rgba(240,235,225,.7);line-height:1.75;font-style:italic;margin-bottom:12px}
+.avis-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.25);color:var(--gold);font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+
+/* SCIENCE */
+.sci-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.sci-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:28px 22px}
+.sci-icon{font-size:1.6rem;margin-bottom:14px}
+.sci-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);margin-bottom:8px}
+.sci-desc{font-size:.82rem;color:rgba(240,235,225,.5);line-height:1.7}
+.sci-tag{display:inline-block;margin-top:12px;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1.5px;color:rgba(200,169,110,.5);border:1px solid rgba(200,169,110,.2);padding:3px 10px;border-radius:2px}
+
+/* OFFRE */
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+.offer-card{background:var(--white);border:2px solid var(--border);border-radius:8px;padding:36px;position:relative}
+.offer-card.best{border-color:var(--gold);box-shadow:0 8px 40px rgba(200,169,110,.15)}
+.offer-card.best::before{content:'Recommande';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:4px 16px;border-radius:2px}
+.offer-tag{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+.offer-price{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.offer-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--navy);line-height:1}
+.offer-unit{font-size:.85rem;color:var(--muted)}
+.offer-ppd{font-size:.75rem;color:var(--sage);font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:24px}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.offer-list li{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted)}
+.offer-list li::before{content:'checkmark';font-size:0;width:0}
+.offer-list li::after{content:'';display:none}
+.offer-li-check{color:var(--sage);font-weight:700;flex-shrink:0}
+.offer-btn{width:100%;padding:14px;text-align:center;background:var(--navy);color:var(--ivory);border:none;border-radius:3px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;transition:background .2s}
+.offer-btn:hover{background:var(--navy2)}
+.offer-card.best .offer-btn{background:var(--gold);color:var(--navy)}
+.offer-card.best .offer-btn:hover{background:var(--gold2)}
+.offer-guar{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:.75rem;color:var(--muted);justify-content:center}
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:36px}
+.badge{display:flex;align-items:center;gap:6px;background:var(--white);border:1px solid var(--border);padding:8px 16px;border-radius:100px;font-size:.75rem;color:var(--muted)}
+
+/* QUIZ */
+.quiz-wrap{max-width:620px;margin:48px auto 0;background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(28,43,58,.07)}
+.quiz-head{background:var(--navy);padding:24px 32px;display:flex;align-items:center;gap:14px}
+.quiz-head-icon{font-size:1.4rem}
+.quiz-head-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ivory);font-weight:400}
+.quiz-head-sub{font-size:.72rem;color:rgba(240,235,225,.45);letter-spacing:1px;margin-top:2px}
+.quiz-prog{height:3px;background:rgba(200,169,110,.15)}
+.quiz-bar{height:100%;background:var(--gold);transition:width .4s ease}
+.quiz-body{padding:32px}
+.quiz-step{display:none;animation:fadeUp .35s ease both}
+.quiz-step.active{display:block}
+.quiz-stepnum{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:10px;display:block}
+.quiz-q{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--navy);margin-bottom:24px;line-height:1.3}
+.quiz-opts{display:flex;flex-direction:column;gap:10px}
+.quiz-opt{display:flex;align-items:center;gap:14px;background:var(--bg);border:1.5px solid var(--border);padding:14px 18px;border-radius:8px;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
+.quiz-opt:hover{border-color:var(--gold);background:rgba(200,169,110,.05)}
+.quiz-opt.sel{border-color:var(--gold);background:rgba(200,169,110,.08)}
+.quiz-opt-icon{font-size:1.2rem;flex-shrink:0}
+.quiz-opt-lbl{font-size:.9rem;color:var(--text);font-weight:500}
+.quiz-opt-sub{font-size:.75rem;color:var(--muted);margin-top:1px}
+.quiz-opt-chk{margin-left:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:.7rem}
+.quiz-opt.sel .quiz-opt-chk{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.quiz-next{margin-top:24px;width:100%;background:var(--navy);color:var(--ivory);border:none;padding:14px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background .2s,opacity .2s;opacity:.4;pointer-events:none}
+.quiz-next.on{opacity:1;pointer-events:all}
+.quiz-next.on:hover{background:var(--navy2)}
+.quiz-res{display:none;animation:fadeUp .4s ease both}
+.quiz-res.active{display:block}
+.qr-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--navy);margin-bottom:8px}
+.qr-title em{font-style:italic;color:var(--gold)}
+.qr-sub{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.qr-tl{background:rgba(74,124,111,.06);border:1px solid rgba(74,124,111,.2);border-radius:8px;padding:18px;margin-bottom:20px}
+.qr-tl-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+.qr-tl-steps{display:flex;flex-direction:column;gap:10px}
+.qr-ts{display:flex;align-items:flex-start;gap:12px;font-size:.82rem}
+.qr-ts-w{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--sage);font-weight:600;white-space:nowrap;background:rgba(74,124,111,.1);padding:2px 8px;border-radius:2px;margin-top:1px;flex-shrink:0}
+.qr-ts-t{color:var(--muted);line-height:1.5}
+.qr-card{background:var(--navy);border-radius:8px;padding:24px;margin-bottom:20px;position:relative;overflow:hidden}
+.qr-card::before{content:'Recommande pour vous';position:absolute;top:12px;right:12px;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+.qr-cure-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--ivory);margin-bottom:4px}
+.qr-price{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:600;line-height:1;margin-bottom:12px}
+.qr-feats{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.qr-feat{font-size:.8rem;color:rgba(240,235,225,.7);display:flex;align-items:center;gap:8px}
+.qr-feat::before{content:'checkmark';font-size:0}
+.qr-feat-chk{color:var(--gold);font-weight:700;flex-shrink:0}
+.qr-btn{display:block;width:100%;background:var(--gold);color:var(--navy);padding:14px;text-align:center;border-radius:6px;font-weight:700;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;transition:background .2s}
+.qr-btn:hover{background:var(--gold2)}
+.quiz-restart{background:none;border:none;color:var(--muted);font-size:.78rem;cursor:pointer;display:flex;align-items:center;gap:5px;margin-top:4px;padding:0;transition:color .2s;font-family:'DM Sans',sans-serif}
+.quiz-restart:hover{color:var(--navy)}
+
+/* FAQ */
+.faq-wrap{max-width:700px;margin:40px auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:500;text-align:left;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:color .2s;-webkit-tap-highlight-color:transparent}
+.faq-q:hover,.faq-q.open{color:var(--gold2)}
+.faq-arr{color:var(--gold);font-size:1.1rem;transition:transform .3s;flex-shrink:0}
+.faq-q.open .faq-arr{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.88rem;color:var(--muted);line-height:1.8}
+.faq-a.open{max-height:300px;padding-bottom:18px}
+
+/* CTA */
+.cta-band{background:var(--navy);padding:80px 5%;text-align:center}
+.cta-band h2{font-size:clamp(1.8rem,3vw,2.8rem);color:var(--ivory);margin-bottom:12px}
+.cta-band h2 em{color:var(--gold);font-style:italic}
+.cta-band p{font-size:.9rem;color:rgba(240,235,225,.5);margin-bottom:28px}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(200,169,110,.1);padding:60px 5% 32px}
+.foot-in{max-width:1100px;margin:0 auto}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:3px;color:var(--ivory);margin-bottom:12px}
+.foot-logo span{color:var(--gold)}
+.foot-desc{font-size:.82rem;color:rgba(240,235,225,.4);line-height:1.8;margin-bottom:12px}
+.foot-disc{font-size:.7rem;color:rgba(240,235,225,.2);line-height:1.7;font-style:italic}
+.foot-col-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(200,169,110,.5);margin-bottom:14px}
+.foot-links{display:flex;flex-direction:column;gap:8px}
+.foot-links a{font-size:.82rem;color:rgba(240,235,225,.35);transition:color .2s}
+.foot-links a:hover{color:var(--gold)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.72rem;color:rgba(240,235,225,.2)}
+
+/* STICKY */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;background:var(--white);border-top:1px solid var(--border);padding:12px 16px 16px;box-shadow:0 -4px 24px rgba(0,0,0,.08)}
+.sticky a{display:block;background:var(--navy);color:var(--ivory);padding:14px;text-align:center;border-radius:3px;font-weight:600;font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase}
+.sticky-sub{font-size:.65rem;color:var(--muted);text-align:center;margin-top:5px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  body{padding-bottom:72px}
+  .sticky{display:block}
+  nav{padding:0 16px}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-right{display:none}
+  .hero-btns{flex-direction:column}
+  .btn-gold,.btn-outline{justify-content:center}
+  .hero-results{grid-template-columns:1fr 1fr}
+  .ba-grid,.offer-grid,.foot-top{grid-template-columns:1fr}
+  .ben-grid,.sci-grid{grid-template-columns:1fr}
+  .sec{padding:56px 16px}
+  .strip-inner{justify-content:center}
+  .quiz-body{padding:20px}
+}
+</style>
 </head>
 <body>
 
@@ -231,7 +263,7 @@
   <div class="nav-logo">RETA <span>PEPTIDE</span></div>
   <div class="nav-links">
     <a href="reta-catalogue.html">Catalogue</a>
-    <a href="#resultats">Résultats</a>
+    <a href="#resultats">Resultats</a>
     <a href="#quiz">Quiz</a>
     <a href="#avis">Avis</a>
     <a href="#faq">FAQ</a>
@@ -241,348 +273,384 @@
 </nav>
 <div class="nav-mob" id="navmob">
   <a href="reta-catalogue.html" onclick="closeNav()">Catalogue</a>
-  <a href="#resultats" onclick="closeNav()">Résultats</a>
+  <a href="#resultats" onclick="closeNav()">Resultats</a>
   <a href="#quiz" onclick="closeNav()">Quiz</a>
   <a href="#avis" onclick="closeNav()">Avis clients</a>
   <a href="#faq" onclick="closeNav()">FAQ</a>
-  <a href="#offre" class="nav-cta" onclick="closeNav()">Commander →</a>
+  <a href="#offre" class="nav-cta" onclick="closeNav()">Commander</a>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-grid">
-    <div>
-      <div class="hero-badge"><span class="hero-badge-dot"></span> Résultats dès la 2e semaine</div>
+    <div class="hero-left">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Resultats des la 2e semaine</div>
       <h1>Enfin <em>moins faim.</em><br/>Vraiment.</h1>
-      <p class="hero-desc"><strong>Pas un régime. Pas une privation.</strong> Reta Peptide agit sur les hormones qui contrôlent votre faim — pour que vous mangiez moins naturellement, sans vous battre contre vous-même.</p>
+      <p class="hero-desc"><strong>Pas un regime. Pas une privation.</strong> Reta Peptide agit sur les hormones qui controlent votre faim pour que vous mangiez moins naturellement, sans vous battre contre vous-meme.</p>
       <div class="hero-btns">
-        <a href="#offre" class="btn-gold">Commencer ma cure →</a>
-        <a href="#resultats" class="btn-outline">Voir les résultats</a>
+        <a href="#offre" class="btn-gold">Commencer ma cure</a>
+        <a href="#resultats" class="btn-outline">Voir les resultats</a>
       </div>
       <div class="hero-results">
         <div class="result-box gold"><div class="result-num">Sem. 2</div><div class="result-label">Premiers effets sur la faim</div></div>
-        <div class="result-box"><div class="result-num">-12 kg</div><div class="result-label">En moyenne sur 8 semaines*</div></div>
-        <div class="result-box"><div class="result-num">87%</div><div class="result-label">Clients satisfaits du résultat</div></div>
-        <div class="result-box gold"><div class="result-num">30j</div><div class="result-label">Remboursé si pas convaincu</div></div>
+        <div class="result-box"><div class="result-num">-12 kg</div><div class="result-label">En moyenne sur 8 semaines</div></div>
+        <div class="result-box"><div class="result-num">87%</div><div class="result-label">Clients satisfaits</div></div>
+        <div class="result-box gold"><div class="result-num">30j</div><div class="result-label">Rembourse si pas convaincu</div></div>
       </div>
     </div>
     <div class="hero-right">
-      <div class="testimonial-card">
+      <div class="tc">
         <div class="tc-stars">★★★★★</div>
-        <div class="tc-text">"Dès la deuxième semaine je n'avais plus cette obsession constante de penser à manger. Je mange moins sans me forcer."</div>
+        <div class="tc-text">"Des la deuxieme semaine je n'avais plus cette obsession constante de penser a manger. Je mange moins sans me forcer."</div>
         <div class="tc-author">Sophie L. · 42 ans · Paris</div>
-        <span class="tc-result">✓ Cure 3 mois</span>
+        <span class="tc-tag">Cure 3 mois</span>
       </div>
-      <div class="testimonial-card">
+      <div class="tc">
         <div class="tc-stars">★★★★★</div>
-        <div class="tc-text">"–12 kg en 8 semaines en combinant avec un peu de sport. Honnêtement je ne pensais pas que ça marcherait aussi bien."</div>
+        <div class="tc-text">"12 kg en 8 semaines en combinant avec un peu de sport. Honnêtement je ne pensais pas que ca marcherait aussi bien."</div>
         <div class="tc-author">Marc R. · 48 ans · Lyon</div>
-        <span class="tc-result">✓ –12 kg en 8 semaines</span>
+        <span class="tc-tag">-12 kg en 8 semaines</span>
       </div>
-      <div class="testimonial-card">
+      <div class="tc">
         <div class="tc-stars">★★★★★</div>
-        <div class="tc-text">"Mon tour de taille a nettement changé après 3 mois. Et mon niveau d'énergie dans la journée est bien meilleur."</div>
-        <div class="tc-author">Céline A. · 37 ans · Bruxelles</div>
-        <span class="tc-result">✓ Cure 3 mois</span>
+        <div class="tc-text">"Mon tour de taille a nettement change apres 3 mois. Mon niveau d'energie dans la journee est bien meilleur."</div>
+        <div class="tc-author">Celine A. · 37 ans · Bruxelles</div>
+        <span class="tc-tag">Cure 3 mois</span>
       </div>
     </div>
   </div>
 </section>
 
-<div class="results-strip">
-  <div class="rs-inner">
-    <div class="rs-item"><div><div class="rs-num">2e sem.</div><div class="rs-lbl">Premiers effets ressentis</div></div></div>
-    <div class="rs-divider"></div>
-    <div class="rs-item"><div><div class="rs-num">–12 kg</div><div class="rs-lbl">Moyenne sur 8 semaines*</div></div></div>
-    <div class="rs-divider"></div>
-    <div class="rs-item"><div><div class="rs-num">87%</div><div class="rs-lbl">Clients satisfaits</div></div></div>
-    <div class="rs-divider"></div>
-    <div class="rs-item"><div><div class="rs-num">30j</div><div class="rs-lbl">Garantie remboursement</div></div></div>
-    <div class="rs-divider"></div>
-    <div class="rs-item"><div><div class="rs-num">GMP</div><div class="rs-lbl">Fabriqué en Europe</div></div></div>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item"><div><div class="strip-num">2e sem.</div><div class="strip-lbl">Premiers effets ressentis</div></div></div>
+    <div class="strip-div"></div>
+    <div class="strip-item"><div><div class="strip-num">-12 kg</div><div class="strip-lbl">Moyenne sur 8 semaines</div></div></div>
+    <div class="strip-div"></div>
+    <div class="strip-item"><div><div class="strip-num">87%</div><div class="strip-lbl">Clients satisfaits</div></div></div>
+    <div class="strip-div"></div>
+    <div class="strip-item"><div><div class="strip-num">30j</div><div class="strip-lbl">Garantie remboursement</div></div></div>
+    <div class="strip-div"></div>
+    <div class="strip-item"><div><div class="strip-num">GMP</div><div class="strip-lbl">Fabrique en Europe</div></div></div>
   </div>
 </div>
 
-<section class="section ivory" id="resultats">
-  <div class="section-inner">
-    <span class="stag reveal">Ce qui change concrètement</span>
-    <h2 class="sh2 reveal">Avant Reta. <em>Après Reta.</em></h2>
-    <p class="ssub reveal">Ce que nos clients décrivent, semaine après semaine.</p>
-    <div class="before-after reveal">
-      <div class="ba-col before">
-        <div class="ba-label">Avant</div>
+<!-- AVANT APRES -->
+<section class="sec bg-ivory" id="resultats">
+  <div class="sec-in">
+    <span class="stag rev">Ce qui change concretement</span>
+    <h2 class="sh2 rev">Avant Reta. <em>Apres Reta.</em></h2>
+    <p class="ssub rev">Ce que nos clients decrivent, semaine apres semaine.</p>
+    <div class="ba-grid rev">
+      <div class="ba-col ba-before">
+        <div class="ba-lbl">Avant</div>
         <div class="ba-items">
-          <div class="ba-item"><span class="ba-icon">😩</span> Faim constante même après avoir mangé</div>
-          <div class="ba-item"><span class="ba-icon">🍫</span> Envies de sucre incontrôlables en fin de journée</div>
-          <div class="ba-item"><span class="ba-icon">😴</span> Coup de fatigue après chaque repas</div>
-          <div class="ba-item"><span class="ba-icon">🔄</span> Régimes qui marchent... puis l'effet yoyo</div>
-          <div class="ba-item"><span class="ba-icon">😤</span> Frustration de se priver sans résultats durables</div>
+          <div class="ba-item"><span class="ba-icon">😩</span> Faim constante meme apres avoir mange</div>
+          <div class="ba-item"><span class="ba-icon">🍫</span> Envies de sucre incontrôlables en fin de journee</div>
+          <div class="ba-item"><span class="ba-icon">😴</span> Coup de fatigue apres chaque repas</div>
+          <div class="ba-item"><span class="ba-icon">🔄</span> Regimes qui marchent puis l'effet yoyo</div>
+          <div class="ba-item"><span class="ba-icon">😤</span> Frustration de se priver sans resultats durables</div>
         </div>
       </div>
-      <div class="ba-col after">
-        <div class="ba-label">Avec Reta</div>
+      <div class="ba-col ba-after">
+        <div class="ba-lbl">Avec Reta</div>
         <div class="ba-items">
-          <div class="ba-item"><span class="ba-icon">✅</span> Satiété naturelle — vous arrêtez de manger parce que vous n'avez plus faim</div>
+          <div class="ba-item"><span class="ba-icon">✅</span> Satiente naturelle — vous arretez de manger parce que vous n'avez plus faim</div>
           <div class="ba-item"><span class="ba-icon">✅</span> Les envies compulsives diminuent progressivement</div>
-          <div class="ba-item"><span class="ba-icon">✅</span> Énergie stable tout au long de la journée</div>
-          <div class="ba-item"><span class="ba-icon">✅</span> Métabolisme soutenu — pas ralenti comme avec les régimes</div>
-          <div class="ba-item"><span class="ba-icon">✅</span> Des résultats qui tiennent dans le temps</div>
+          <div class="ba-item"><span class="ba-icon">✅</span> Energie stable tout au long de la journee</div>
+          <div class="ba-item"><span class="ba-icon">✅</span> Metabolisme soutenu, pas ralenti comme avec les regimes</div>
+          <div class="ba-item"><span class="ba-icon">✅</span> Des resultats qui tiennent dans le temps</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="benefices">
-  <div class="section-inner">
-    <span class="stag reveal">Ce que vous ressentez</span>
-    <h2 class="sh2 reveal">Des effets concrets,<br/><em>semaine par semaine.</em></h2>
-    <p class="ssub reveal">Pas de promesses magiques. Juste ce que nos clients observent réellement.</p>
-    <div class="benefits-grid reveal">
-      <div class="benefit-card"><div class="benefit-week">Semaine 1–2</div><div class="benefit-title">Vous avez moins faim</div><div class="benefit-desc">Votre cerveau reçoit le signal de satiété plus tôt. Vous finissez vos repas sans vous forcer à vous arrêter.</div></div>
-      <div class="benefit-card"><div class="benefit-week">Semaine 1–2</div><div class="benefit-title">Énergie stable toute la journée</div><div class="benefit-desc">Fini le coup de fatigue après le déjeuner. Plus de pics, plus de chutes — juste une énergie constante.</div></div>
-      <div class="benefit-card"><div class="benefit-week">Semaine 3–4</div><div class="benefit-title">Les envies disparaissent</div><div class="benefit-desc">Les fringales de fin de journée, les envies de sucre compulsives — elles diminuent sans effort de votre part.</div></div>
-      <div class="benefit-card"><div class="benefit-week">Semaine 4–6</div><div class="benefit-title">La silhouette change</div><div class="benefit-desc">Votre corps brûle davantage au repos. Les résultats deviennent visibles sur la balance et dans le miroir.</div></div>
-      <div class="benefit-card"><div class="benefit-week">Semaine 3–5</div><div class="benefit-title">Un rapport différent à la nourriture</div><div class="benefit-desc">Vous ne pensez plus constamment à manger. La nourriture reprend sa place — un plaisir, pas une obsession.</div></div>
-      <div class="benefit-card"><div class="benefit-week">Long terme</div><div class="benefit-title">Des résultats qui durent</div><div class="benefit-desc">Contrairement aux régimes, Reta soutient votre métabolisme au lieu de le ralentir. Pas d'effet yoyo.</div></div>
+<!-- BENEFICES -->
+<section class="sec" id="benefices">
+  <div class="sec-in">
+    <span class="stag rev">Ce que vous ressentez</span>
+    <h2 class="sh2 rev">Des effets concrets,<br/><em>semaine par semaine.</em></h2>
+    <p class="ssub rev">Pas de promesses magiques. Juste ce que nos clients observent reellement.</p>
+    <div class="ben-grid rev">
+      <div class="ben-card"><div class="ben-week">Semaine 1-2</div><div class="ben-title">Vous avez moins faim</div><div class="ben-desc">Votre cerveau recoit le signal de satiente plus tot. Vous finissez vos repas sans vous forcer a vous arreter.</div></div>
+      <div class="ben-card"><div class="ben-week">Semaine 1-2</div><div class="ben-title">Energie stable toute la journee</div><div class="ben-desc">Fini le coup de fatigue apres le dejeuner. Plus de pics, plus de chutes, juste une energie constante.</div></div>
+      <div class="ben-card"><div class="ben-week">Semaine 3-4</div><div class="ben-title">Les envies disparaissent</div><div class="ben-desc">Les fringales de fin de journee, les envies de sucre compulsives, elles diminuent sans effort de votre part.</div></div>
+      <div class="ben-card"><div class="ben-week">Semaine 4-6</div><div class="ben-title">La silhouette change</div><div class="ben-desc">Votre corps brule davantage au repos. Les resultats deviennent visibles sur la balance et dans le miroir.</div></div>
+      <div class="ben-card"><div class="ben-week">Semaine 3-5</div><div class="ben-title">Un rapport different a la nourriture</div><div class="ben-desc">Vous ne pensez plus constamment a manger. La nourriture reprend sa place, un plaisir pas une obsession.</div></div>
+      <div class="ben-card"><div class="ben-week">Long terme</div><div class="ben-title">Des resultats qui durent</div><div class="ben-desc">Contrairement aux regimes, Reta soutient votre metabolisme au lieu de le ralentir. Pas d'effet yoyo.</div></div>
     </div>
   </div>
 </section>
 
-<section class="section alt" id="avis">
-  <div class="section-inner">
-    <span class="stag reveal">Ils ont essayé</span>
-    <h2 class="sh2 reveal">Ce que nos clients <em>disent vraiment.</em></h2>
-    <p class="ssub reveal">Témoignages authentiques. Les résultats varient selon les profils.</p>
-    <div class="reviews-scroll reveal">
-      <div class="review-card">
-        <div class="rc-top"><div style="display:flex;align-items:center;gap:10px;"><div class="rc-av">S</div><div><div class="rc-name">Sophie L.</div><div class="rc-meta">42 ans · Paris · 3 mois</div></div></div><div class="rc-stars">★★★★★</div></div>
-        <div class="rc-text">"Dès la deuxième semaine je n'avais plus cette obsession constante de penser à ce que j'allais manger. Je mange moins sans me battre contre moi-même."</div>
-        <span class="rc-result">✓ Cure 3 mois</span>
+<!-- AVIS -->
+<section class="sec bg-navy" id="avis">
+  <div class="sec-in">
+    <span class="stag rev">Ils ont essaye</span>
+    <h2 class="sh2 rev">Ce que nos clients <em>disent vraiment.</em></h2>
+    <p class="ssub rev">Temoignages authentiques. Les resultats varient selon les profils.</p>
+    <div class="avis-scroll rev">
+      <div class="avis-card">
+        <div class="avis-top"><div style="display:flex;align-items:center;gap:10px;"><div class="avis-av">S</div><div><div class="avis-name">Sophie L.</div><div class="avis-meta">42 ans · Paris · 3 mois</div></div></div><div class="avis-stars">★★★★★</div></div>
+        <div class="avis-text">"Des la deuxieme semaine je n'avais plus cette obsession constante de penser a ce que j'allais manger. Je mange moins sans me battre contre moi-meme."</div>
+        <span class="avis-tag">Cure 3 mois</span>
       </div>
-      <div class="review-card">
-        <div class="rc-top"><div style="display:flex;align-items:center;gap:10px;"><div class="rc-av">M</div><div><div class="rc-name">Marc R.</div><div class="rc-meta">48 ans · Lyon · 2 mois</div></div></div><div class="rc-stars">★★★★★</div></div>
-        <div class="rc-text">"J'avais essayé beaucoup de choses. Avec Reta j'ai perdu 12 kg en 8 semaines en faisant juste un peu plus de marche."</div>
-        <span class="rc-result">✓ –12 kg en 8 semaines</span>
+      <div class="avis-card">
+        <div class="avis-top"><div style="display:flex;align-items:center;gap:10px;"><div class="avis-av">M</div><div><div class="avis-name">Marc R.</div><div class="avis-meta">48 ans · Lyon · 2 mois</div></div></div><div class="avis-stars">★★★★★</div></div>
+        <div class="avis-text">"J'avais essaye beaucoup de choses. Avec Reta j'ai perdu 12 kg en 8 semaines en faisant juste un peu plus de marche."</div>
+        <span class="avis-tag">-12 kg en 8 semaines</span>
       </div>
-      <div class="review-card">
-        <div class="rc-top"><div style="display:flex;align-items:center;gap:10px;"><div class="rc-av">C</div><div><div class="rc-name">Céline A.</div><div class="rc-meta">37 ans · Bruxelles · 3 mois</div></div></div><div class="rc-stars">★★★★★</div></div>
-        <div class="rc-text">"Après 3 mois, mon tour de taille a nettement changé et mon niveau d'énergie dans la journée est bien meilleur. Je dors aussi mieux."</div>
-        <span class="rc-result">✓ Tour de taille réduit</span>
+      <div class="avis-card">
+        <div class="avis-top"><div style="display:flex;align-items:center;gap:10px;"><div class="avis-av">C</div><div><div class="avis-name">Celine A.</div><div class="avis-meta">37 ans · Bruxelles · 3 mois</div></div></div><div class="avis-stars">★★★★★</div></div>
+        <div class="avis-text">"Apres 3 mois mon tour de taille a nettement change et mon niveau d'energie dans la journee est bien meilleur. Je dors aussi mieux."</div>
+        <span class="avis-tag">Tour de taille reduit</span>
       </div>
-      <div class="review-card">
-        <div class="rc-top"><div style="display:flex;align-items:center;gap:10px;"><div class="rc-av">T</div><div><div class="rc-name">Thomas D.</div><div class="rc-meta">51 ans · Montréal · 1 mois</div></div></div><div class="rc-stars">★★★★☆</div></div>
-        <div class="rc-text">"À partir de la 2e semaine, clairement moins faim au dîner. Les habitudes changent vraiment. Je continue avec la cure 3 mois."</div>
-        <span class="rc-result">✓ Cure en cours</span>
+      <div class="avis-card">
+        <div class="avis-top"><div style="display:flex;align-items:center;gap:10px;"><div class="avis-av">T</div><div><div class="avis-name">Thomas D.</div><div class="avis-meta">51 ans · Montreal · 1 mois</div></div></div><div class="avis-stars">★★★★☆</div></div>
+        <div class="avis-text">"A partir de la 2e semaine, clairement moins faim au diner. Les habitudes changent vraiment. Je continue avec la cure 3 mois."</div>
+        <span class="avis-tag">Cure en cours</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section alt" id="science">
-  <div class="section-inner">
-    <span class="stag reveal">Pourquoi ça marche</span>
-    <h2 class="sh2 reveal">La science, <em>sans le jargon.</em></h2>
-    <p class="ssub reveal">Votre corps a des hormones qui régulent la faim. Reta les aide à faire leur travail correctement.</p>
-    <div class="science-grid reveal">
-      <div class="sci-card"><div class="sci-icon">🧠</div><div class="sci-title">Il coupe la faim à la source</div><div class="sci-desc">Reta active les récepteurs hormonaux qui envoient le signal "j'ai assez mangé" à votre cerveau — plus tôt et plus fort qu'avant.</div><span class="sci-tag">Satiété naturelle</span></div>
-      <div class="sci-card"><div class="sci-icon">⚡</div><div class="sci-title">Il stabilise votre énergie</div><div class="sci-desc">En améliorant la façon dont votre corps utilise le sucre, Reta élimine les pics d'énergie et les coups de fatigue post-repas.</div><span class="sci-tag">Énergie stable</span></div>
-      <div class="sci-card"><div class="sci-icon">🔥</div><div class="sci-title">Il booste le métabolisme</div><div class="sci-desc">Reta stimule la dépense énergétique au repos — votre corps brûle plus même sans changer votre activité physique.</div><span class="sci-tag">Thermogenèse</span></div>
+<!-- SCIENCE -->
+<section class="sec bg-navy" id="science">
+  <div class="sec-in">
+    <span class="stag rev">Pourquoi ca marche</span>
+    <h2 class="sh2 rev">La science, <em>sans le jargon.</em></h2>
+    <p class="ssub rev">Votre corps a des hormones qui regulent la faim. Reta les aide a faire leur travail correctement.</p>
+    <div class="sci-grid rev">
+      <div class="sci-card"><div class="sci-icon">🧠</div><div class="sci-title">Il coupe la faim a la source</div><div class="sci-desc">Reta active les recepteurs hormonaux qui envoient le signal "j'ai assez mange" a votre cerveau, plus tot et plus fort qu'avant.</div><span class="sci-tag">Satiente naturelle</span></div>
+      <div class="sci-card"><div class="sci-icon">⚡</div><div class="sci-title">Il stabilise votre energie</div><div class="sci-desc">En ameliorant la facon dont votre corps utilise le sucre, Reta elimine les pics d'energie et les coups de fatigue post-repas.</div><span class="sci-tag">Energie stable</span></div>
+      <div class="sci-card"><div class="sci-icon">🔥</div><div class="sci-title">Il booste le metabolisme</div><div class="sci-desc">Reta stimule la depense energetique au repos. Votre corps brule plus meme sans changer votre activite physique.</div><span class="sci-tag">Thermogenese</span></div>
     </div>
-    <p style="font-size:.78rem;color:rgba(240,235,225,.25);margin-top:24px;font-style:italic;text-align:center;">Basé sur la recherche clinique publiée dans le New England Journal of Medicine (2023). Reta Peptide est un complément alimentaire, pas un médicament.</p>
+    <p style="font-size:.78rem;color:rgba(240,235,225,.25);margin-top:24px;font-style:italic;text-align:center;">Base sur la recherche clinique publiee dans le New England Journal of Medicine (2023). Reta Peptide est un complement alimentaire, pas un medicament.</p>
   </div>
 </section>
 
-<section class="section" id="offre">
-  <div class="section-inner">
-    <span class="stag reveal">Choisissez votre cure</span>
-    <h2 class="sh2 reveal" style="text-align:center;">Commencez <em>maintenant.</em></h2>
-    <p class="ssub reveal" style="margin:0 auto;text-align:center;">Les meilleurs résultats s'obtiennent sur 2 à 3 mois. Plus vous commencez tôt, plus vite vous voyez la différence.</p>
-    <div class="offer-grid reveal">
+<!-- OFFRE -->
+<section class="sec" id="offre">
+  <div class="sec-in">
+    <span class="stag rev">Choisissez votre cure</span>
+    <h2 class="sh2 rev" style="text-align:center;">Commencez <em>maintenant.</em></h2>
+    <p class="ssub rev" style="margin:0 auto;text-align:center;">Les meilleurs resultats s'obtiennent sur 2 a 3 mois. Plus vous commencez tot, plus vite vous voyez la difference.</p>
+    <div class="offer-grid rev">
       <div class="offer-card">
-        <div class="offer-tag">Cure 1 mois — Découverte</div>
-        <div class="offer-price"><div class="offer-price-num">69€</div><div class="offer-price-unit">/ mois</div></div>
+        <div class="offer-tag">Cure 1 mois - Decouverte</div>
+        <div class="offer-price"><div class="offer-num">69€</div><div class="offer-unit">/ mois</div></div>
         <div class="offer-ppd">2,30€ par jour</div>
         <ul class="offer-list">
-          <li>1 flacon 30 jours</li>
-          <li>Guide d'utilisation inclus</li>
-          <li>Support client dédié</li>
-          <li>Livraison discrète sous 48h</li>
-          <li>Garantie 30 jours</li>
+          <li><span class="offer-li-check">✓</span> 1 flacon 30 jours</li>
+          <li><span class="offer-li-check">✓</span> Guide d'utilisation inclus</li>
+          <li><span class="offer-li-check">✓</span> Support client dedie</li>
+          <li><span class="offer-li-check">✓</span> Livraison discrete sous 48h</li>
+          <li><span class="offer-li-check">✓</span> Garantie 30 jours</li>
         </ul>
-        <button class="offer-btn">Commander — 69€</button>
-        <div class="offer-guarantee"><span>🛡️</span> Satisfait ou remboursé 30 jours</div>
+        <button class="offer-btn">Commander - 69€</button>
+        <div class="offer-guar">🛡️ Satisfait ou rembourse 30 jours</div>
       </div>
       <div class="offer-card best">
-        <div class="offer-tag">Cure 3 mois — Transformation</div>
-        <div class="offer-price"><div class="offer-price-num">54€</div><div class="offer-price-unit">/ mois</div></div>
-        <div class="offer-ppd">1,80€ par jour · Vous économisez 45€</div>
+        <div class="offer-tag">Cure 3 mois - Transformation</div>
+        <div class="offer-price"><div class="offer-num">54€</div><div class="offer-unit">/ mois</div></div>
+        <div class="offer-ppd">1,80€ par jour · Vous economisez 45€</div>
         <ul class="offer-list">
-          <li>3 flacons — cure complète 90 jours</li>
-          <li>Guide nutrition métabolique offert</li>
-          <li>Suivi nutritionnel en ligne inclus</li>
-          <li>Livraison discrète sous 48h</li>
-          <li>Garantie étendue 60 jours</li>
+          <li><span class="offer-li-check">✓</span> 3 flacons cure complete 90 jours</li>
+          <li><span class="offer-li-check">✓</span> Guide nutrition metabolique offert</li>
+          <li><span class="offer-li-check">✓</span> Suivi nutritionnel en ligne inclus</li>
+          <li><span class="offer-li-check">✓</span> Livraison discrete sous 48h</li>
+          <li><span class="offer-li-check">✓</span> Garantie etendue 60 jours</li>
         </ul>
-        <button class="offer-btn">Commander — 162€ · –22%</button>
-        <div class="offer-guarantee"><span>🛡️</span> Satisfait ou remboursé 60 jours</div>
+        <button class="offer-btn">Commander - 162€ · -22%</button>
+        <div class="offer-guar">🛡️ Satisfait ou rembourse 60 jours</div>
       </div>
     </div>
-    <div class="badges-row reveal">
-      <div class="badge-pill">🔒 Paiement sécurisé</div>
-      <div class="badge-pill">🇪🇺 Fabriqué en Europe</div>
-      <div class="badge-pill">📦 Livraison discrète 48h</div>
-      <div class="badge-pill">🌿 Sans additifs artificiels</div>
-      <div class="badge-pill">✅ Conforme EFSA</div>
+    <div class="badges rev">
+      <div class="badge">🔒 Paiement securise</div>
+      <div class="badge">🇪🇺 Fabrique en Europe</div>
+      <div class="badge">📦 Livraison discrete 48h</div>
+      <div class="badge">🌿 Sans additifs artificiels</div>
+      <div class="badge">✅ Conforme EFSA</div>
     </div>
   </div>
 </section>
 
-<section class="section quiz-section" id="quiz">
-  <div class="section-inner">
-    <span class="stag reveal">Personnalisez votre cure</span>
-    <h2 class="sh2 reveal">Quelle cure est <em>faite pour vous ?</em></h2>
-    <p class="ssub reveal">3 questions — Obtenez votre recommandation personnalisée en 30 secondes.</p>
-    <div class="quiz-wrap reveal">
-      <div class="quiz-header">
-        <div class="quiz-header-icon">🎯</div>
+<!-- QUIZ -->
+<section class="sec bg-ivory" id="quiz">
+  <div class="sec-in">
+    <span class="stag rev">Personnalisez votre cure</span>
+    <h2 class="sh2 rev">Quelle cure est <em>faite pour vous ?</em></h2>
+    <p class="ssub rev">3 questions — Obtenez votre recommandation personnalisee en 30 secondes.</p>
+    <div class="quiz-wrap rev">
+      <div class="quiz-head">
+        <div class="quiz-head-icon">🎯</div>
         <div>
-          <div class="quiz-header-title">Trouvez votre cure idéale</div>
-          <div class="quiz-header-sub">Résultat immédiat · Gratuit · Sans inscription</div>
+          <div class="quiz-head-title">Trouvez votre cure ideale</div>
+          <div class="quiz-head-sub">Resultat immediat · Gratuit · Sans inscription</div>
         </div>
       </div>
-      <div class="quiz-progress"><div class="quiz-progress-bar" id="quizBar" style="width:0%"></div></div>
+      <div class="quiz-prog"><div class="quiz-bar" id="qBar" style="width:0%"></div></div>
       <div class="quiz-body">
-        <div class="quiz-step active" id="step1">
-          <span class="quiz-step-num">Question 1 / 3</span>
-          <div class="quiz-question">Quel est votre objectif principal ?</div>
-          <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'step1','lose_small')"><span class="quiz-option-icon">⚖️</span><div><div class="quiz-option-label">Perdre 5 à 10 kg</div><div class="quiz-option-sub">Affiner la silhouette, retrouver la forme</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step1','lose_big')"><span class="quiz-option-icon">🎯</span><div><div class="quiz-option-label">Perdre plus de 10 kg</div><div class="quiz-option-sub">Transformation significative sur la durée</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step1','energy')"><span class="quiz-option-icon">⚡</span><div><div class="quiz-option-label">Retrouver de l'énergie et moins craquer</div><div class="quiz-option-sub">Réduire les fringales, stabiliser l'humeur</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step1','maintain')"><span class="quiz-option-icon">🔒</span><div><div class="quiz-option-label">Maintenir mes résultats</div><div class="quiz-option-sub">J'ai perdu du poids et je veux tenir</div></div><div class="quiz-option-check"></div></div>
+        <div class="quiz-step active" id="qs1">
+          <span class="quiz-stepnum">Question 1 / 3</span>
+          <div class="quiz-q">Quel est votre objectif principal ?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="pick(this,'s1','a')"><span class="quiz-opt-icon">⚖️</span><div><div class="quiz-opt-lbl">Perdre 5 a 10 kg</div><div class="quiz-opt-sub">Affiner la silhouette, retrouver la forme</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s1','b')"><span class="quiz-opt-icon">🎯</span><div><div class="quiz-opt-lbl">Perdre plus de 10 kg</div><div class="quiz-opt-sub">Transformation significative sur la duree</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s1','c')"><span class="quiz-opt-icon">⚡</span><div><div class="quiz-opt-lbl">Retrouver de l'energie et moins craquer</div><div class="quiz-opt-sub">Reduire les fringales, stabiliser l'humeur</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s1','d')"><span class="quiz-opt-icon">🔒</span><div><div class="quiz-opt-lbl">Maintenir mes resultats</div><div class="quiz-opt-sub">J'ai perdu du poids et je veux tenir</div></div><div class="quiz-opt-chk"></div></div>
           </div>
-          <button class="quiz-next" id="next1" onclick="goToStep(2)">Continuer →</button>
+          <button class="quiz-next" id="qn1" onclick="goStep(2)">Continuer</button>
         </div>
-        <div class="quiz-step" id="step2">
-          <span class="quiz-step-num">Question 2 / 3</span>
-          <div class="quiz-question">Avez-vous déjà essayé des compléments ou des régimes ?</div>
-          <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'step2','never')"><span class="quiz-option-icon">🌱</span><div><div class="quiz-option-label">Non, c'est la première fois</div><div class="quiz-option-sub">Je commence à me prendre en main</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step2','tried_failed')"><span class="quiz-option-icon">🔄</span><div><div class="quiz-option-label">Oui, sans résultats durables</div><div class="quiz-option-sub">Effet yoyo, j'ai tout repris après</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step2','tried_some')"><span class="quiz-option-icon">📈</span><div><div class="quiz-option-label">Oui, avec quelques résultats</div><div class="quiz-option-sub">J'ai avancé mais je veux aller plus loin</div></div><div class="quiz-option-check"></div></div>
+        <div class="quiz-step" id="qs2">
+          <span class="quiz-stepnum">Question 2 / 3</span>
+          <div class="quiz-q">Avez-vous deja essaye des complements ou des regimes ?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="pick(this,'s2','a')"><span class="quiz-opt-icon">🌱</span><div><div class="quiz-opt-lbl">Non, c'est la premiere fois</div><div class="quiz-opt-sub">Je commence a me prendre en main</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s2','b')"><span class="quiz-opt-icon">🔄</span><div><div class="quiz-opt-lbl">Oui, sans resultats durables</div><div class="quiz-opt-sub">Effet yoyo, j'ai tout repris apres</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s2','c')"><span class="quiz-opt-icon">📈</span><div><div class="quiz-opt-lbl">Oui, avec quelques resultats</div><div class="quiz-opt-sub">J'ai avance mais je veux aller plus loin</div></div><div class="quiz-opt-chk"></div></div>
           </div>
-          <button class="quiz-next" id="next2" onclick="goToStep(3)">Continuer →</button>
+          <button class="quiz-next" id="qn2" onclick="goStep(3)">Continuer</button>
         </div>
-        <div class="quiz-step" id="step3">
-          <span class="quiz-step-num">Question 3 / 3</span>
-          <div class="quiz-question">En combien de temps voulez-vous voir des résultats significatifs ?</div>
-          <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'step3','fast')"><span class="quiz-option-icon">🚀</span><div><div class="quiz-option-label">Le plus vite possible</div><div class="quiz-option-sub">Dans les 4 à 6 semaines</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step3','medium')"><span class="quiz-option-icon">📅</span><div><div class="quiz-option-label">D'ici 2 à 3 mois</div><div class="quiz-option-sub">Je préfère des résultats solides et durables</div></div><div class="quiz-option-check"></div></div>
-            <div class="quiz-option" onclick="selectOption(this,'step3','longterm')"><span class="quiz-option-icon">🏆</span><div><div class="quiz-option-label">Je joue sur le long terme</div><div class="quiz-option-sub">Transformation profonde, je suis patient</div></div><div class="quiz-option-check"></div></div>
+        <div class="quiz-step" id="qs3">
+          <span class="quiz-stepnum">Question 3 / 3</span>
+          <div class="quiz-q">En combien de temps voulez-vous voir des resultats significatifs ?</div>
+          <div class="quiz-opts">
+            <div class="quiz-opt" onclick="pick(this,'s3','a')"><span class="quiz-opt-icon">🚀</span><div><div class="quiz-opt-lbl">Le plus vite possible</div><div class="quiz-opt-sub">Dans les 4 a 6 semaines</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s3','b')"><span class="quiz-opt-icon">📅</span><div><div class="quiz-opt-lbl">D'ici 2 a 3 mois</div><div class="quiz-opt-sub">Je prefere des resultats solides et durables</div></div><div class="quiz-opt-chk"></div></div>
+            <div class="quiz-opt" onclick="pick(this,'s3','c')"><span class="quiz-opt-icon">🏆</span><div><div class="quiz-opt-lbl">Je joue sur le long terme</div><div class="quiz-opt-sub">Transformation profonde, je suis patient</div></div><div class="quiz-opt-chk"></div></div>
           </div>
-          <button class="quiz-next" id="next3" onclick="showResult()">Voir ma recommandation →</button>
+          <button class="quiz-next" id="qn3" onclick="showRes()">Voir ma recommandation</button>
         </div>
-        <div class="quiz-result" id="quizResult">
-          <div class="qr-title" id="qrTitle">Votre cure <em>idéale</em></div>
+        <div class="quiz-res" id="qRes">
+          <div class="qr-title" id="qrTitle">Votre cure <em>ideale</em></div>
           <p class="qr-sub" id="qrSub"></p>
-          <div class="qr-timeline"><div class="qr-timeline-title">Votre programme semaine par semaine</div><div class="qr-timeline-steps" id="qrSteps"></div></div>
+          <div class="qr-tl"><div class="qr-tl-title">Votre programme semaine par semaine</div><div class="qr-tl-steps" id="qrSteps"></div></div>
           <div class="qr-card" id="qrCard"></div>
-          <button class="quiz-restart" onclick="restartQuiz()">↺ Recommencer le quiz</button>
+          <button class="quiz-restart" onclick="resetQuiz()">Recommencer le quiz</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section ivory" id="faq">
-  <div class="section-inner">
-    <span class="stag reveal" style="text-align:center;">On répond à vos questions</span>
-    <h2 class="sh2 reveal" style="text-align:center;">FAQ</h2>
-    <div class="faq-wrap reveal">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">C'est quoi exactement Reta Peptide ? <span class="faq-arrow">+</span></button><div class="faq-a">Reta Peptide est un complément alimentaire formulé pour agir sur les hormones qui régulent la faim. Il réduit naturellement l'appétit, stabilise l'énergie et soutient le métabolisme — sans régime strict, sans privation.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">En combien de temps je vois des résultats ? <span class="faq-arrow">+</span></button><div class="faq-a">La majorité de nos clients ressentent une première différence sur la satiété dès la 2e semaine. Les effets visuels sur la silhouette arrivent généralement entre la 3e et 6e semaine. Une cure de 3 mois donne les résultats les plus complets.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Est-ce que je dois suivre un régime en parallèle ? <span class="faq-arrow">+</span></button><div class="faq-a">Non. Reta Peptide agit sur votre satiété naturelle — vous mangerez moins spontanément. Un mode de vie équilibré amplifie les résultats mais n'est pas obligatoire pour constater des effets.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Y a-t-il des effets secondaires ? <span class="faq-arrow">+</span></button><div class="faq-a">Certains clients rapportent une satiété accrue ou un léger inconfort digestif les premiers jours. Ces effets sont transitoires et disparaissent généralement en 1 à 2 semaines. Si vous êtes sous traitement médical, consultez votre médecin avant de commencer.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Comment fonctionne le remboursement ? <span class="faq-arrow">+</span></button><div class="faq-a">Si vous n'êtes pas satisfait après 3 semaines d'utilisation, contactez-nous avant la fin de la période de garantie. Nous remboursons intégralement, sans question posée.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Reta Peptide est-il un médicament ? <span class="faq-arrow">+</span></button><div class="faq-a">Non. Reta Peptide est un complément alimentaire. Il ne remplace pas un traitement médical et ne nécessite pas d'ordonnance. Il est formulé pour soutenir le métabolisme dans le cadre d'un mode de vie sain.</div></div>
+<!-- FAQ -->
+<section class="sec bg-ivory" id="faq">
+  <div class="sec-in">
+    <span class="stag rev" style="text-align:center;">On repond a vos questions</span>
+    <h2 class="sh2 rev" style="text-align:center;">FAQ</h2>
+    <div class="faq-wrap rev">
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">C'est quoi exactement Reta Peptide ? <span class="faq-arr">+</span></button><div class="faq-a">Reta Peptide est un complement alimentaire formule pour agir sur les hormones qui regulent la faim. Il reduit naturellement l'appetit, stabilise l'energie et soutient le metabolisme, sans regime strict ni privation.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">En combien de temps je vois des resultats ? <span class="faq-arr">+</span></button><div class="faq-a">La majorite de nos clients ressentent une premiere difference sur la satiente des la 2e semaine. Les effets visuels sur la silhouette arrivent generalement entre la 3e et 6e semaine. Une cure de 3 mois donne les resultats les plus complets.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Est-ce que je dois suivre un regime en parallele ? <span class="faq-arr">+</span></button><div class="faq-a">Non. Reta Peptide agit sur votre satiente naturelle. Vous mangerez moins spontanement. Un mode de vie equilibre amplifie les resultats mais n'est pas obligatoire pour constater des effets.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Y a-t-il des effets secondaires ? <span class="faq-arr">+</span></button><div class="faq-a">Certains clients rapportent une satiente accrue ou un leger inconfort digestif les premiers jours. Ces effets sont transitoires et disparaissent generalement en 1 a 2 semaines. Si vous etes sous traitement medical, consultez votre medecin avant de commencer.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Comment fonctionne le remboursement ? <span class="faq-arr">+</span></button><div class="faq-a">Si vous n'etes pas satisfait apres 3 semaines d'utilisation, contactez-nous avant la fin de la periode de garantie. Nous remboursons integralement, sans question posee.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="faq(this)">Reta Peptide est-il un medicament ? <span class="faq-arr">+</span></button><div class="faq-a">Non. Reta Peptide est un complement alimentaire. Il ne remplace pas un traitement medical et ne necessite pas d'ordonnance. Il est formule pour soutenir le metabolisme dans le cadre d'un mode de vie sain.</div></div>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta-band">
   <div style="max-width:600px;margin:0 auto;">
-    <h2>Prêt à changer votre<br/><em>rapport à la faim ?</em></h2>
-    <p>Livraison sous 48h · Satisfait ou remboursé 30 jours · Support inclus</p>
-    <a href="#offre" class="btn-gold" style="display:inline-flex;margin-top:8px;">Commencer ma cure →</a>
+    <h2>Pret a changer votre<br/><em>rapport a la faim ?</em></h2>
+    <p>Livraison sous 48h · Satisfait ou rembourse 30 jours · Support inclus</p>
+    <a href="#offre" class="btn-gold" style="display:inline-flex;margin-top:8px;">Commencer ma cure</a>
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+  <div class="foot-in">
+    <div class="foot-top">
       <div>
-        <div class="footer-logo">RETA <span>PEPTIDE</span></div>
-        <p class="footer-desc">Complément alimentaire premium pour soutenir naturellement votre satiété, votre énergie et votre métabolisme.</p>
-        <p class="footer-disclaimer">* Résultats observés sur un panel de clients sur 8 semaines de cure continue. Les résultats varient selon les individus, le mode de vie et l'alimentation. Ces affirmations n'ont pas été évaluées par les autorités sanitaires.</p>
+        <div class="foot-logo">RETA <span>PEPTIDE</span></div>
+        <p class="foot-desc">Complement alimentaire premium pour soutenir naturellement votre satiente, votre energie et votre metabolisme.</p>
+        <p class="foot-disc">* Resultats observes sur un panel de clients sur 8 semaines de cure continue. Les resultats varient selon les individus. Ces affirmations n'ont pas ete evaluees par les autorites sanitaires.</p>
       </div>
       <div>
-        <div class="footer-col-title">Produit</div>
-        <div class="footer-links"><a href="reta-catalogue.html">Catalogue</a><a href="#resultats">Résultats</a><a href="#avis">Avis clients</a><a href="#offre">Commander</a></div>
+        <div class="foot-col-title">Produit</div>
+        <div class="foot-links"><a href="reta-catalogue.html">Catalogue</a><a href="#resultats">Resultats</a><a href="#avis">Avis clients</a><a href="#offre">Commander</a></div>
       </div>
       <div>
-        <div class="footer-col-title">Infos</div>
-        <div class="footer-links"><a href="#">Mentions légales</a><a href="#">CGV</a><a href="#">Politique de retour</a><a href="#">Contact</a></div>
+        <div class="foot-col-title">Infos</div>
+        <div class="foot-links"><a href="#">Mentions legales</a><a href="#">CGV</a><a href="#">Politique de retour</a><a href="#">Contact</a></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Reta Peptide — Tous droits réservés</span>
-      <span>Fabriqué en Europe · Conforme EFSA · GMP Certified</span>
+    <div class="foot-bottom">
+      <span>2026 Reta Peptide - Tous droits reserves</span>
+      <span>Fabrique en Europe · Conforme EFSA · GMP Certified</span>
     </div>
   </div>
 </footer>
 
-<div class="sticky-mob">
-  <a href="#offre">Commencer ma cure →</a>
-  <div class="sticky-mob-sub">🛡️ Satisfait ou remboursé 30 jours · Livraison 48h</div>
+<div class="sticky">
+  <a href="#offre">Commencer ma cure</a>
+  <div class="sticky-sub">🛡️ Satisfait ou rembourse 30 jours · Livraison 48h</div>
 </div>
 
 <script>
-  function toggleNav(){document.getElementById('navmob').classList.toggle('open')}
-  function closeNav(){document.getElementById('navmob').classList.remove('open')}
-  function toggleFaq(btn){const a=btn.nextElementSibling,open=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));if(!open){a.classList.add('open');btn.classList.add('open')}}
-  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-  window.addEventListener('scroll',()=>{document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 2px 20px rgba(28,43,58,.08)':'none'},{passive:true});
-  const quizAnswers={};
-  function selectOption(el,step,value){el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o=>{o.classList.remove('selected');o.querySelector('.quiz-option-check').textContent=''});el.classList.add('selected');el.querySelector('.quiz-option-check').textContent='✓';quizAnswers[step]=value;const n=step.replace('step','');const btn=document.getElementById('next'+n);if(btn)btn.classList.add('enabled')}
-  function goToStep(n){document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));document.getElementById('step'+n).classList.add('active');document.getElementById('quizBar').style.width=(((n-1)/3)*100)+'%'}
-  function showResult(){
-    document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
-    document.getElementById('quizBar').style.width='100%';
-    const goal=quizAnswers['step1'],history=quizAnswers['step2'],timing=quizAnswers['step3'];
-    let cure='3mois';
-    if((goal==='lose_small'||goal==='maintain'||goal==='energy')&&timing==='fast')cure='1mois';
-    let intro='';
-    if(history==='tried_failed')intro="Vous avez déjà essayé sans succès durable — c'est exactement le profil pour lequel Reta a été conçu. Le problème n'était pas votre volonté, c'était votre biologie.";
-    else if(history==='never')intro="Bonne nouvelle : commencer tôt donne les meilleurs résultats. Votre corps n'a pas encore développé de résistance aux méthodes classiques.";
-    else intro="Vous avez déjà progressé — Reta va amplifier ces résultats en agissant sur les mécanismes que les autres approches ne touchent pas.";
-    document.getElementById('qrSub').textContent=intro;
-    const steps=cure==='1mois'
-      ?[{week:'Sem. 1–2',text:'Réduction des fringales, énergie plus stable'},{week:'Sem. 3–4',text:'Satiété naturelle, premières différences visuelles'},{week:'Mois 1',text:'Résultats consolidés, nouvelles habitudes installées'}]
-      :[{week:'Sem. 1–2',text:'Réduction des fringales, énergie plus stable'},{week:'Sem. 3–6',text:'Satiété naturelle, silhouette qui change'},{week:'Mois 2',text:'Résultats visibles, métabolisme en hausse'},{week:'Mois 3',text:'Transformation complète — jusqu\'à –12 kg en moyenne'}];
-    document.getElementById('qrSteps').innerHTML=steps.map(s=>`<div class="qr-ts"><span class="qr-ts-week">${s.week}</span><span class="qr-ts-text">${s.text}</span></div>`).join('');
-    if(cure==='1mois'){
-      document.getElementById('qrTitle').innerHTML='Votre cure <em>idéale</em> : 1 mois';
-      document.getElementById('qrCard').innerHTML=`<div class="qr-cure-name">Cure Découverte — 1 mois</div><div class="qr-cure-price">69€</div><div class="qr-cure-features"><div class="qr-feature">1 flacon 30 jours</div><div class="qr-feature">Guide d'utilisation inclus</div><div class="qr-feature">Support client dédié</div><div class="qr-feature">Garantie remboursement 30 jours</div></div><a href="#offre" class="qr-btn">Commander ma cure →</a>`;
-    }else{
-      document.getElementById('qrTitle').innerHTML='Votre cure <em>idéale</em> : 3 mois';
-      document.getElementById('qrCard').innerHTML=`<div class="qr-cure-name">Cure Transformation — 3 mois</div><div class="qr-cure-price">54€ <span style="font-size:1rem;color:rgba(240,235,225,.4);font-weight:400;">/ mois</span></div><div class="qr-cure-features"><div class="qr-feature">3 flacons — cure complète 90 jours</div><div class="qr-feature">Guide nutrition métabolique offert</div><div class="qr-feature">Suivi nutritionnel en ligne inclus</div><div class="qr-feature">Garantie remboursement 60 jours</div><div class="qr-feature">Économisez 45€ vs cure mensuelle</div></div><a href="#offre" class="qr-btn">Commander ma cure →</a>`;
-    }
-    document.getElementById('quizResult').classList.add('active');
-    document.getElementById('quizResult').scrollIntoView({behavior:'smooth',block:'nearest'});
+function toggleNav(){document.getElementById('navmob').classList.toggle('open')}
+function closeNav(){document.getElementById('navmob').classList.remove('open')}
+function faq(btn){
+  var a=btn.nextElementSibling,open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});
+  document.querySelectorAll('.faq-q').forEach(function(x){x.classList.remove('open')});
+  if(!open){a.classList.add('open');btn.classList.add('open')}
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('.rev').forEach(function(el){obs.observe(el)});
+window.addEventListener('scroll',function(){document.querySelector('nav').style.boxShadow=window.scrollY>40?'0 2px 20px rgba(28,43,58,.08)':'none'},{passive:true});
+
+var qa={};
+function pick(el,step,val){
+  el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(function(o){o.classList.remove('sel');o.querySelector('.quiz-opt-chk').textContent=''});
+  el.classList.add('sel');
+  el.querySelector('.quiz-opt-chk').textContent='✓';
+  qa[step]=val;
+  var num=step.replace('s','');
+  var btn=document.getElementById('qn'+num);
+  if(btn)btn.classList.add('on');
+}
+function goStep(n){
+  document.querySelectorAll('.quiz-step').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('qs'+n).classList.add('active');
+  document.getElementById('qBar').style.width=(((n-1)/3)*100)+'%';
+}
+function showRes(){
+  document.querySelectorAll('.quiz-step').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('qBar').style.width='100%';
+  var g=qa['s1'],h=qa['s2'],t=qa['s3'];
+  var cure='3mois';
+  if((g==='a'||g==='c'||g==='d')&&t==='a')cure='1mois';
+  var intro='';
+  if(h==='b')intro="Vous avez deja essaye sans succes durable. C'est exactement le profil pour lequel Reta a ete concu. Le probleme n'etait pas votre volonte, c'etait votre biologie.";
+  else if(h==='a')intro="Bonne nouvelle : commencer tot donne les meilleurs resultats. Votre corps n'a pas encore developpe de resistance aux methodes classiques.";
+  else intro="Vous avez deja progresse. Reta va amplifier ces resultats en agissant sur les mecanismes que les autres approches ne touchent pas.";
+  document.getElementById('qrSub').textContent=intro;
+  var steps=cure==='1mois'
+    ?[{w:'Sem. 1-2',t:'Reduction des fringales, energie plus stable'},{w:'Sem. 3-4',t:'Satiente naturelle, premieres differences visuelles'},{w:'Mois 1',t:'Resultats consolides, nouvelles habitudes installees'}]
+    :[{w:'Sem. 1-2',t:'Reduction des fringales, energie plus stable'},{w:'Sem. 3-6',t:'Satiente naturelle, silhouette qui change'},{w:'Mois 2',t:'Resultats visibles, metabolisme en hausse'},{w:'Mois 3',t:'Transformation complete - jusqu\'a -12 kg en moyenne'}];
+  document.getElementById('qrSteps').innerHTML=steps.map(function(s){return '<div class="qr-ts"><span class="qr-ts-w">'+s.w+'</span><span class="qr-ts-t">'+s.t+'</span></div>'}).join('');
+  if(cure==='1mois'){
+    document.getElementById('qrTitle').innerHTML='Votre cure <em>ideale</em> : 1 mois';
+    document.getElementById('qrCard').innerHTML='<div class="qr-cure-name">Cure Decouverte - 1 mois</div><div class="qr-price">69€</div><div class="qr-feats"><div class="qr-feat"><span class="qr-feat-chk">✓</span>1 flacon 30 jours</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Guide d\'utilisation inclus</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Support client dedie</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Garantie remboursement 30 jours</div></div><a href="#offre" class="qr-btn">Commander ma cure</a>';
+  }else{
+    document.getElementById('qrTitle').innerHTML='Votre cure <em>ideale</em> : 3 mois';
+    document.getElementById('qrCard').innerHTML='<div class="qr-cure-name">Cure Transformation - 3 mois</div><div class="qr-price">54€ <span style="font-size:1rem;color:rgba(240,235,225,.4);font-weight:400;">/ mois</span></div><div class="qr-feats"><div class="qr-feat"><span class="qr-feat-chk">✓</span>3 flacons cure complete 90 jours</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Guide nutrition metabolique offert</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Suivi nutritionnel en ligne inclus</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Garantie remboursement 60 jours</div><div class="qr-feat"><span class="qr-feat-chk">✓</span>Economisez 45€ vs cure mensuelle</div></div><a href="#offre" class="qr-btn">Commander ma cure</a>';
   }
-  function restartQuiz(){Object.keys(quizAnswers).forEach(k=>delete quizAnswers[k]);document.querySelectorAll('.quiz-option').forEach(o=>{o.classList.remove('selected');o.querySelector('.quiz-option-check').textContent=''});document.querySelectorAll('.quiz-next').forEach(b=>b.classList.remove('enabled'));document.getElementById('quizResult').classList.remove('active');document.getElementById('quizBar').style.width='0%';goToStep(1)}
+  document.getElementById('qRes').classList.add('active');
+  document.getElementById('qRes').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function resetQuiz(){
+  qa={};
+  document.querySelectorAll('.quiz-opt').forEach(function(o){o.classList.remove('sel');o.querySelector('.quiz-opt-chk').textContent=''});
+  document.querySelectorAll('.quiz-next').forEach(function(b){b.classList.remove('on')});
+  document.getElementById('qRes').classList.remove('active');
+  document.getElementById('qBar').style.width='0%';
+  goStep(1);
+}
 </script>
 </body>
 </html>
